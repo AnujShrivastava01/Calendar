@@ -47,7 +47,9 @@ To run this application locally, ensure you have Node.js installed, then follow 
 
 ## 📸 Component Showcase
 
-*(Hint: Drop a GIF or screenshot of your custom CSS blur flips here!)*
+<p align="center">
+  <img src="ss.jpg" alt="Calendar UI Screenshot" width="500">
+</p>
 
 ---
 
