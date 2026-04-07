@@ -42,6 +42,7 @@ export default function Calendar() {
   const [notes, setNotes] = useState('');
   const [targetDate, setTargetDate] = useState(null);
   const [isFlipping, setIsFlipping] = useState('');
+  const [isNotesExpanded, setIsNotesExpanded] = useState(false);
 
   // Handle month theme updates
   useEffect(() => {
@@ -238,14 +239,19 @@ export default function Calendar() {
     <>
       {renderHeader(dateForView)}
       <div className="calendar-body">
-        <div className="notes-panel">
-          <div className="notes-header">Notes</div>
-          <textarea 
-            className="notes-input" 
-            value={notes} 
-            onChange={handleNotesChange}
-            placeholder="Jot down memos here..."
-          />
+        <div className={`notes-panel ${isNotesExpanded ? 'expanded' : ''}`}>
+          <div className="notes-header" onClick={() => setIsNotesExpanded(!isNotesExpanded)}>
+            <span>Notes</span>
+            <ChevronRight className={`notes-toggle-icon ${isNotesExpanded ? 'open' : ''}`} size={18} />
+          </div>
+          <div className="notes-content">
+            <textarea 
+              className="notes-input" 
+              value={notes} 
+              onChange={handleNotesChange}
+              placeholder="Jot down memos here..."
+            />
+          </div>
         </div>
         <div className="grid-panel">
           {renderDaysHeader(dateForView)}
